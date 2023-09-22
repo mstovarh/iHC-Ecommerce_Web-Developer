@@ -1,0 +1,64 @@
+body{
+    font-family: 'Pangolin', cursive;
+}
+
+.st-header {
+    background-color: rgb(228, 148, 0);
+    color: #FFFFFF;
+}
+
+.st-nav {
+    background-color: #DECFFF;
+}
+
+.st-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.color-card {
+    padding: 1em;
+    background-color: rgba(255, 253, 232, 0.5);
+}
+
+.color-card:hover {
+    background-color: rgba(255, 253, 232, 1);;
+}
+
+.st-card:hover {
+    cursor: pointer;
+    box-shadow: 4px 12px 20px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.20s ease;
+}
+
+.st-but {
+    background-color: #FFFCCE;
+    color: #000000;
+}
+
+.st-but-in {
+    background-color: rgba(222, 207, 255, 0.5); 
+    transition: background-color 0.12s ease;
+}
+
+.st-but-in:hover {
+    background-color: rgba(222, 207, 255, 1);
+}
+
+.st-con {
+    background-color: #8e8b67f0;
+    color: #FFFFFF;
+    padding: 0.7em;
+}
+
+.st-loc {
+    background-color: #7a7858df;
+    color: #FFFFFF;
+    padding: 0.7em;
+}
+
+.st-copybar {
+    background-color: #836DB3;
+    color: #FFFFFF;
+}
+
