@@ -26,7 +26,7 @@
                         <div class="collapse navbar-collapse justify-content-star" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="login.html">Log in</a>
+                                    <a class="nav-link active" aria-current="page" href="p_login.html">Log in</a>
                                 </li>
                             </ul>
                         </div>
@@ -43,33 +43,18 @@
                         <fieldset class="s-fieldset rounded-2">
                             <div class="row">
                                 <p class="h5">Ingresa tus datos</p>
+                                <h6 id="msg-error" class="msg-1"></h6>
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="col">
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+                                            <input id="nameR" type="name" class="form-control" placeholder="Nombre">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="col">
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Apellido">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <div class="col">
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo electronico">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <div class="col">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                                            <input id="lastnameR" type="lastname" class="form-control" placeholder="Apellido">
                                         </div>
                                     </div>
                                 </div>
@@ -78,21 +63,37 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="col">
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Confirme correo electronico">
+                                            <input id="email" type="email" class="form-control" placeholder="Correo electronico">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
                                         <div class="col">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Confirme contraseña">
+                                            <input id="password" type="password" class="form-control" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <div class="col">
+                                            <input id="checkEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Confirme correo electronico">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <div class="col">
+                                            <input id="checkPassword" type="password" class="form-control" id="inputPassword" placeholder="Confirme contraseña">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning"><a href="home.html">Registrame</a></button>
+                                    <button type="submit" class="btn btn-warning"><a id="start2" href="p_home.html">Registrame</a></button>
                                 </div>
                             </div>
                         </fieldset>
@@ -107,7 +108,7 @@
 
     
     <!--Librerias de JS-->
-
+    <script src="dom_logup.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

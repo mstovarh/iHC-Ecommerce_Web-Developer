@@ -18,6 +18,11 @@ body {
 
 .st-cont {
     background-color: #FFFDE8;
+    padding-top: 1em;
+}
+
+.st-but {
+    margin-top: 0.5em;
 }
 
 .st-cant {

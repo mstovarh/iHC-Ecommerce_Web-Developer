@@ -16,16 +16,6 @@ body {
     background-color: #DECFFF;
 }
 
-.s-name {
-    height: 83vh;
-    background-color: #FFFCCE;
-    font-family: 'Pangolin', cursive;
-    color: #836DB3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .s-form {
     height: 83vh;
     background-color: #FFFCCE;
@@ -40,6 +30,12 @@ body {
     padding: 2em;
     box-shadow: 4px 12px 20px rgba(0, 0, 0, 0.5);
     transition: transform background-color 0.10s ease;
+}
+
+.msg-1 {
+    color: red;
+    font-size: 0.55em;
+    font-weight:600;
 }
 
 .s-fieldset:hover {

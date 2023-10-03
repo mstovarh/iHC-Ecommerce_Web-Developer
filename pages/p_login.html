@@ -27,23 +27,24 @@
                     <div class="col-sm-6 s-form">
                         <fieldset class="s-fieldset rounded-2">
                             <p class="h5">Ingresa tus datos</p>
+                            <h6 id="msg-error" class="msg-1"></h6>
                             <div class="mb-3">
                                 <div class="col">
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo electronico">
+                                    <input type="email" class="form-control" id="email" placeholder="Correo electronico">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning"><a href="home.html">Iniciar Sesión</a></button>
+                                    <button type="submit" class="btn btn-warning"><a id="start1" href="p_home.html">Iniciar Sesión</a></button>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <h6><a href="#">¿Olvidaste tu contraseña?</a></h6>
+                                <h6><a href="p_key.html">¿Olvidaste tu contraseña?</a></h6>
                             </div>
                         </fieldset>
                     </div>
@@ -58,7 +59,7 @@
             </div>
             <div class="col-sm-1">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-warning"><a href="logup.html">Registrarme</a></button>
+                    <button type="button" class="btn btn-warning"><a href="p_logup.html">Registrarme</a></button>
                     <button type="button" class="btn btn-warning"><a href="../index.html">Atras</a></button>
                 </div>
             </div>
@@ -66,7 +67,7 @@
     </footer>
     
     <!--Librerias de JS-->
-
+    <script src="dom_login.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

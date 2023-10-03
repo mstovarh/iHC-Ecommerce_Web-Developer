@@ -26,6 +26,12 @@
     justify-content: center;
 }
 
+.msg-1 {
+    color: red;
+    font-size: 0.55em;
+    font-weight:600;
+}
+
 .s-fieldset {
     font-family: 'Pangolin', cursive;
     background-color: #e5e2b6;

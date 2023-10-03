@@ -1,0 +1,44 @@
+body {
+    font-family: 'Pangolin', cursive;
+}
+
+.s-conecta {
+    background-color: #B3AF7F;
+    color: #FFFDE8;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carritoContainer {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#carritoTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#itemsCarrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+#itemsCarrito li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#totalAmount {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
