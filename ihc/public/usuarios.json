@@ -1,0 +1,28 @@
+[
+  {
+    "name": "admin",
+    "lastname": "admin",
+    "email": "admin@ihc.com",
+    "password": "admin12345",
+    "emailCheck": "admin@ihc.com",
+    "passwordCheck": "admin12345"
+  },
+  {
+    "name": "user",
+    "lastname": "one",
+    "email": "user@gmail.com",
+    "password": "user12345",
+    "emailCheck": "user@gmail.com",
+    "passwordCheck": "user12345"
+  },
+  {
+    "name": "user",
+    "lastname": "two",
+    "email": "user@outlook.com",
+    "password": "user12345",
+    "emailCheck": "user@outlook.com",
+    "passwordCheck": "user12345"
+  }
+]
+
+  

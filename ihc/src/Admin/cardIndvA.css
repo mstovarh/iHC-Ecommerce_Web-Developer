@@ -1,0 +1,15 @@
+.colorA {
+    background: #FFFDE8;
+    transition:  background 0.25s ease, transform 0.5s ease;
+}
+
+.colorA:hover {
+    background: -moz-radial-gradient(center, #fffde8 20%, #decfff80 100%);
+    background: -webkit-radial-gradient(center, #FFFDE8 20%, #decfff80 100%);
+    background: radial-gradient(ellipse at center, #FFFDE8 20%, #decfff80 100%);
+    transform: scale(1.02); 
+}
+
+.pa {
+    font-size: 15px;
+}

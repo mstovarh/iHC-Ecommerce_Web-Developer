@@ -1,0 +1,9 @@
+.st-cardPC {
+    font-size: 0.8em;
+    background-color: #fde8ff;
+}
+
+.st-cardPC:hover {
+    cursor: pointer;
+}
+

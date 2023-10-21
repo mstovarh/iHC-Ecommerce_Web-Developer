@@ -1,0 +1,45 @@
+.s-nameLG {
+    height: 27em;
+    background-color: #FFFCCE;
+    font-family: 'Pangolin', cursive;
+    color: #836DB3;
+}
+
+.s-formLG {
+    height: 27em;
+    background-color: #FFFCCE;
+}
+
+.msg-1LG {
+    color: red;
+    font-size: 0.55em;
+    font-weight:600;
+}
+
+.s-fieldsetLG {
+    font-family: 'Pangolin', cursive;
+    background-color: #e5e2b6;
+    padding: 2em;
+    box-shadow: 4px 12px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.8s ease, background-color 0.2s ease;
+}
+
+.s-fieldsetLG:hover {
+    background: #FFFCCE;
+    background: -moz-radial-gradient(center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    background: -webkit-radial-gradient(center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    background: radial-gradient(ellipse at center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    transform: scale(1.02);
+}
+
+.error-message-container {
+    width: 15em; 
+    word-wrap: break-word;
+}
+  
+
+.p-error {
+    font-size: 10px;
+    color: red;
+    font-style: bold;
+}

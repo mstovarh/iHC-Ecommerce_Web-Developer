@@ -1,0 +1,40 @@
+.s-navlink {
+    height: 9vh;
+    background-color: #DECFFF;
+}
+
+.s-form {
+    height: 83vh;
+    background-color: #FFFCCE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.s-fieldset {
+    font-family: 'Pangolin', cursive;
+    background-color: #e5e2b6;
+    padding: 2em;
+    box-shadow: 4px 12px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.8s ease, background-color 0.2s ease;
+}
+
+.msg-1 {
+    color: red;
+    font-size: 0.55em;
+    font-weight:600;
+} 
+
+.s-fieldset:hover {
+    background: #FFFCCE;
+    background: -moz-radial-gradient(center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    background: -webkit-radial-gradient(center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    background: radial-gradient(ellipse at center, #FFFCCE 0%, #FFFCCE 37%, #E5E2B6 100%);
+    transform: scale(1.02);
+}
+
+.p-error {
+    font-size: 10px;
+    color: red;
+    font-style: bold;
+}

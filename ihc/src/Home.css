@@ -1,0 +1,98 @@
+body {
+    font-family: 'Pangolin', cursive;
+}
+
+.s-navbar {
+    background-color: #DECFFF;
+    text-align: center;
+}
+
+.profile-contenedor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+}
+
+.profile {
+    background-color: #FFFDE8;
+    color: #B3AF7F;
+    border-radius: 1em;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cerrarProfile {
+    margin-top: 10px;
+    background-color: #FFA500; 
+    color: #fff; 
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.carrito-contenedor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.carrito {
+    background-color: #FFFDE8;
+    color: #B3AF7F;
+    border-radius: 1em;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.st-cont {
+    background-color: #FFFDE8;
+} 
+
+.st-cant {
+    margin-left: 6em;
+    margin-right: 6em;
+}
+
+.d-flexE {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+
+.st-card {
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+

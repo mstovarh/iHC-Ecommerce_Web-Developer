@@ -1,0 +1,67 @@
+.st-header {
+    background-color: rgb(228, 148, 0);
+    color: #FFFFFF;
+}
+
+@keyframes slide {
+    0% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+    }
+    12.5% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+    }
+    25% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+    }
+    37.5% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+    }
+    50% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 100%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 100%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 100%, #FFCC8B 100%);
+    }
+    62.5% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 75%, #FFCC8B 100%);
+    }
+    75% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 50%, #FFCC8B 100%);
+    }
+    87.5% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 25%, #FFCC8B 100%);
+    }
+    100% {
+        background: #FFA600;
+        background: -moz-linear-gradient(left, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+        background: -webkit-linear-gradient(left, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+        background: linear-gradient(to right, #FFA600 0%, #FFE589 0%, #FFCC8B 100%);
+    }
+}
+  
+.element:hover {
+    animation: slide 0.8s ease infinite; 
+    cursor: pointer;
+    font-weight: 600;
+}

@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function() { 
     //Login
     let correo = document.getElementById("email");
     let contraseña = document.getElementById("password");

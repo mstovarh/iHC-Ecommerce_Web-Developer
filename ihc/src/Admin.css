@@ -1,0 +1,33 @@
+body {
+    font-family: 'Pangolin', cursive;
+}
+
+.s-welcome {
+    background-color: #836DB3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    color: #DECFFF;
+}
+
+.s-navbar {
+    background-color: #DECFFF;
+    text-align: center;
+}
+
+.st-cont {
+    background-color: #FFFDE8;
+    padding-top: 1em;
+}
+
+.st-inv {
+    background-color: #b3af7faf;
+    color: #FFFCCE
+}
+
+.st-copybar {
+    background-color: #836DB3;
+    color: #FFFFFF;
+}
+
