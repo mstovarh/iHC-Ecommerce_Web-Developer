@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import './mainLG.css';
+import Home from '../../Home';
+import Admin from '../../Admin';
  
 function MainLG() {
   const [email, setEmail] = useState('');

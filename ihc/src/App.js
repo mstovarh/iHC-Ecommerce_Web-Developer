@@ -5,9 +5,11 @@ import Logup from './Logup';
 import Inicio from './Inicio';
 import Admin from './Admin';
 import Home from './Home';
+import GoPay from './Home/GoPay';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch('./products.json')
@@ -26,7 +28,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio products={products}/>} />
         <Route path="/login" element={<Login />}/>
-        <Route path="/home" element={<Home products={products} />}/>
+        <Route path="/home" element={<Home products={products}/>}/>
+        <Route path='/home:GoPay' element={<GoPay/>}/>
         <Route path="/admin" element={<Admin products={products}/>}/>
         <Route path="/logup" element={<Logup/>} />
         <Route path='*' element={<Navigate to="/"/>} />

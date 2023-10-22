@@ -1,17 +1,12 @@
-function ProfileHome(){
-    return(
-        <>
-        <div id="profileModal" className="profile-contenedor">
-            <div className="profile">
-                <h2>Perfil</h2>
-                <p id="email_dir" />
-                <button id="cerrarProfile" className="btn btn-warning">
-                    Cerrar
-                </button>
-            </div>
-        </div>
-        </>
+import React from 'react';
+
+function ProfileHome() {
+    return (
+      <div>
+        <h5>Hola, este es tu perfil</h5>
+      </div>
     );
+
 }
 
-export {ProfileHome};
+export default ProfileHome;

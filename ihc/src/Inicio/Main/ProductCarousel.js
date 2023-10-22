@@ -13,7 +13,7 @@ function ProductCarousel(props){
             className="scrollspy-example bg-body-tertiary rounded-2 st-cardPC"
             tabIndex={0}
             >
-            <CardIndvIH srcImgCard={props.src} altCard={props.alt} nameCard={props.name} priceCard={props.price} linkS={'/login'} />
+            <CardIndvIH srcImgCard={props.src} altCard={props.alt} nameCard={props.name} priceCard={props.price} linkS={'/login'} pagRef={'inicio'}/>
         </div>
     </div>
     );

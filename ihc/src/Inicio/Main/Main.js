@@ -182,7 +182,7 @@ function Main(props){
           </div>
         </div>
         <div>
-          <ContainerCardsIH p={filteredProducts} link={'/login'} />
+          <ContainerCardsIH p={filteredProducts} link={'/login'} pag={'inicio'}/>
         </div>
       </section>
       <section>

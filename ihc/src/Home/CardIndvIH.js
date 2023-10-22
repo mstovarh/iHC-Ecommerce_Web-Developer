@@ -1,38 +1,52 @@
-import './cardIndvIH.css'
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function CardIndvIH(props){
-    return(
-        <>
-            <div className="card color" style={{ width: "18rem" }}>
-                <img
-                    src={props.srcImgCard}
-                    className="card-img-top"
-                    alt={props.altCard}
-                />
-                <div className="card-body">
-                    <h5 className="card-title">
-                    {props.nameCard}
-                    </h5>
-                    <p className="card-text pih"><strong>${props.priceCard}</strong></p>
-                    <div className="input-group mb-3">
-                        <input
-                        type="number"
-                        className="form-control st-cant"
-                        placeholder="Cantidad"
-                        aria-label="Cantidad"
-                        aria-describedby="basic-addon2"
-                        data-product-index=""
-                        min="0"
-                        />
-                    </div>    
-                    <Link to={props.linkS} className="btn btn-outline-warning">
-                        Comprar ahora
-                    </Link>
-                </div>
-            </div>
-        </>
-    );
+function CardIndvIH(props) {
+  const [cantidad, setCantidad] = useState(1);
+
+  const comprarProducto = (index, quantity) => {
+    props.comprarProducto(index, quantity);
+    setCantidad(1);
+  }
+
+  const handleCantidadChange = (e) => {
+    setCantidad(parseInt(e.target.value, 10));
+  };
+
+  return (
+    <div className="card color" style={{ width: "18rem" }}>
+      <img
+        src={props.srcImgCard}
+        className="card-img-top"
+        alt={props.altCard}
+      />
+      <div className="card-body">
+        <h5 className="card-title">{props.nameCard}</h5>
+        <p className="card-text pih">
+          <strong>${props.priceCard * cantidad}</strong>
+        </p>
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            className="form-control st-cant"
+            placeholder="Cantidad"
+            aria-label="Cantidad"
+            aria-describedby="basic-addon2"
+            value={cantidad}
+            onChange={handleCantidadChange}
+            min="1"
+          />
+        </div>
+        <button className="btn btn-outline-warning">
+          {props.pagRef === 'inicio' ? (
+            <Link to={props.linkS}>Comprar ahora</Link>
+          ) : (
+            <Link onClick={() => comprarProducto(props.index, cantidad)}>Comprar ahora</Link>
+          )}
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export {CardIndvIH};
+export { CardIndvIH };

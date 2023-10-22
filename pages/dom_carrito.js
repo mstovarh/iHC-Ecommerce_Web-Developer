@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         while (itemsCarrito.firstChild) {
             itemsCarrito.removeChild(itemsCarrito.firstChild);
         }
-        
+         
         let totalAmount = 0;
 
         storedCarrito.forEach((item) => {

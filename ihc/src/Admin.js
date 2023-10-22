@@ -75,8 +75,7 @@ function Admin(props){
                         >
                             <ul className="nav navbar-nav me-auto mb-2 mb-lg-0">
                                 <ItemsNavAd linkNavAd={"#scrollspyHeading1"} nameNavAd={"Inventario"}/>
-                                <ItemsNavAd linkNavAd={"#scrollspyHeading2"} nameNavAd={"Historial de compras"}/>
-                                <ItemsNavAd linkNavAd={"#scrollspyHeading3"} nameNavAd={"Registro de ventas"}/>
+                                <ItemsNavAd linkNavAd={"#scrollspyHeading2"} nameNavAd={"Registro de ventas"}/>
                             </ul>
                             <div className="d-flex justify-content-end align-items-center me-5">
                                 <div className="search-container">
@@ -100,20 +99,13 @@ function Admin(props){
                     </p>
                 </div>
                 <ContainerCardsA d={filteredProducts}/> 
-                </section>
                 <section className="st-cont">
                 <div className="row st-inv">
                     <p className="h2 m-0" id="scrollspyHeading2">
-                    Historial de compras
-                    </p>
-                </div>
-                </section>
-                <section className="st-cont">
-                <div className="row st-inv">
-                    <p className="h2 m-0" id="scrollspyHeading3">
                     Registro de ventas
                     </p>
                 </div>
+                </section>
             </section>
         </main>
         <Footer />

@@ -5,15 +5,22 @@ import { HeaderL } from './Login-Logup/HeaderL';
 import { Footer } from './Inicio/Footer/Footer';
 import { DropdownItem } from './Home/DropdownItem';
 import { SearchBt } from './Inicio/Main/SearchBt';
-import {ProfileHome} from './Home/ProfileHome';
+import ProfileHome from './Home/ProfileHome'; 
 import {CarritoHome} from './Home/CarritoHome';
 import {ContainerCardsIH} from './Home/ContainerCardsIH';
+import { useNavigate } from "react-router-dom";
 
 function Home(props){
     const products = props.products;
+    const { userName } = props;
     const isDataAvailable = products.length > 0;
+    const navigate = useNavigate();
+
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [searchTerm, setSearchTerm] = useState('');
+    const [carrito, setCarrito] = useState([]);
+    const [showCarrito, setShowCarrito] = useState(false);
+    const [showProfile, setShowProfile] = useState(false);
 
     useEffect   (() => {
         setFilteredProducts(products);
@@ -23,11 +30,13 @@ function Home(props){
         const searchValue = e.target.value;
         setSearchTerm(searchValue);
 
-        const filtered = products.filter((product) =>
-        product.name.toLowerCase().includes(searchValue.toLowerCase())
-        );
-
-        setFilteredProducts(filtered);
+        const filteredProducts = isDataAvailable
+        ? products.filter((product) =>
+            product.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
+        : [];
+    
+        setFilteredProducts(filteredProducts);
     };
   
     const handleSearch = (e) => {
@@ -42,6 +51,108 @@ function Home(props){
         : [];
     
       setFilteredProducts(filteredProducts);
+    };
+    
+    const comprarProducto = (index, quantity) => {
+        const selectedProduct = products[index];
+
+        if (quantity > 0) {
+            if (selectedProduct.stock >= quantity) {
+                selectedProduct.stock -= quantity;
+    
+                const cartItem = {
+                    name: selectedProduct.name,
+                    price: selectedProduct.price,
+                    quantity: quantity,
+                };
+    
+                setCarrito([...carrito, cartItem]);
+
+                fetch(`./products.json/${selectedProduct.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(selectedProduct),
+                })
+                .then((response) => response.json())
+                .then((updatedProduct) => {
+                    console.log('Stock actualizado:', updatedProduct);
+                })
+                .catch((error) => {
+                    console.error('Error al actualizar el stock:', error);
+                });
+    
+                const carritoUpdateEvent = new Event('carritoUpdate');
+                document.dispatchEvent(carritoUpdateEvent);
+
+            } else {
+                alert("No hay suficiente stock disponible.");
+            }
+        } else {
+            alert("Por favor, ingresa una cantidad válida.");
+        }
+    };
+
+    const actualizarCarrito = () => {
+        const itemsCarrito = [];
+        let totalPrice = 0;
+
+        carrito.forEach((item, index) => {
+            itemsCarrito.push(
+                <li key={index}>{`${item.name} x${item.quantity} - $${item.price * item.quantity}`}</li>
+            );
+            totalPrice += item.price * item.quantity;
+        });
+
+        itemsCarrito.push(<li key="total">{`Total: $${totalPrice}`}</li>);
+
+        const carritoData = {
+            items: carrito,
+            totalPrice: totalPrice,
+        };
+
+        fetch('./carritop.json', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(carritoData),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+            console.log('Carrito actualizado:', data);
+            })
+            .catch((error) => {
+            console.error('Error al actualizar el carrito:', error);
+            });
+
+        return itemsCarrito;
+    };
+
+    const openCarrito = () => {
+        setShowCarrito(true);
+        actualizarCarrito();
+    };
+
+    const closeCarrito = () => {
+        setShowCarrito(false);
+    };
+
+    const goToCheckout = () => {
+        if (carrito.length > 0) {
+            navigate('/home:GoPay');
+        } else {
+            alert("No hay productos en el carrito. Agrega productos antes de continuar.");
+        }
+    };
+
+    const openProfile = () => {
+        setShowProfile(true);
+    };
+
+    const closeProfile = () => {
+        setShowProfile(false);
     };
   
     return(
@@ -75,6 +186,7 @@ function Home(props){
                                     className="nav-link active"
                                     aria-current="page"
                                     href="#profileContenedor"
+                                    onClick={openProfile}
                                     >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -94,6 +206,7 @@ function Home(props){
                                     className="nav-link active"
                                     aria-current="page"
                                     href="#carritoContenedor"
+                                    onClick={openCarrito}
                                     >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -118,12 +231,12 @@ function Home(props){
                                     Opciones
                                     </a>
                                     <ul className="dropdown-menu">
-                                        <DropdownItem linkDropItem={""} nameDropItem={"Historial de compras"}/>
-                                        <DropdownItem linkDropItem={""} nameDropItem={"Configuracion"}/>
+                                        <DropdownItem linkDropItem={"/home"} nameDropItem={"Historial de compras"}/>
+                                        <DropdownItem linkDropItem={"/home"} nameDropItem={"Configuracion"}/>
                                         <li>
                                             <hr className="dropdown-divider" />
                                         </li>
-                                        <DropdownItem linkDropItem={""} nameDropItem={"Cerrar sesion"}/>
+                                        <DropdownItem linkDropItem={"/login"} nameDropItem={"Cerrar sesion"}/>
                                     </ul>
                                 </li>
                                 </ul>
@@ -137,15 +250,25 @@ function Home(props){
                                     </div>
                                 </div>
                             </div>
-                            <ProfileHome/>
-                            <CarritoHome/>
+                            <div id="profileModal" className="profile-contenedor" style={{ display: showProfile ? 'block' : 'none' }}>
+                                <div className="profile">
+                                    <span className="close closeCont" onClick={closeProfile}>&times;</span>
+                                    <ProfileHome idCerrarProfile={"cerrarProfile"} userName={userName}/>
+                                </div>
+                            </div>
+                            <div id="carritoContenedor" className="carrito-contenedor" style={{ display: showCarrito ? 'block' : 'none' }}>
+                                <div className="carrito">
+                                    <span className="close closeCont" onClick={closeCarrito}>&times;</span>
+                                    <CarritoHome fnCheck={goToCheckout} actualizarCarrito={actualizarCarrito} p={isDataAvailable ? products : []}/>
+                                </div>
+                            </div>
                         </div>
                     </nav>
                 </div>
             </div>
             </section>
             <section className="st-cont" id="contCardProducts">
-                <ContainerCardsIH p={filteredProducts} link={'/'}/>
+                <ContainerCardsIH p={filteredProducts} comprarProducto={comprarProducto} link={''}/>
             </section>
         </main>
         <Footer/>
