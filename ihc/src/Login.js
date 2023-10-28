@@ -4,11 +4,13 @@ import { HeaderL } from './Login-Logup/HeaderL';
 import { MainLG } from './Login-Logup/LG/MainLG';
 import { FooterLG } from './Login-Logup/LG/FooterLG';
 
-function Login(){
+function Login(props){
+  const users = props.users;
+  const isDataAvailable = users.length > 0; 
     return(
     <>
       <HeaderL logpag={"Conecta"}/>
-      <MainLG/>
+      <MainLG datos={isDataAvailable ? users : []}/>
       <FooterLG/>
     </>
   );

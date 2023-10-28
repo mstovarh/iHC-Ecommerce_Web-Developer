@@ -1,9 +1,13 @@
+import React from 'react';
+
 function ImgCarousel(props){
     return(
-        <img
-        src={props.linkImgC}
-        className="d-block w-100"
-        alt={props.altImgC}/>
+        <>
+            <img
+            src={props.linkImgC}
+            className="d-block w-100"
+            alt={props.altImgC}/>
+        </>
     );
 }
 

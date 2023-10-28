@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 
 function BNIcon(){
@@ -5,7 +6,7 @@ function BNIcon(){
     <>
       <Link className="navbar-brand" id="brand" to="/">
       <img
-      src={process.env.PUBLIC_URL + '/favicon.ico'}
+      src={'/favicon.ico'}
       alt="Logo"
       width={30}
       height={24}

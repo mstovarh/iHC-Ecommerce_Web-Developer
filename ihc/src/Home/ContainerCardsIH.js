@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from 'react';
 import { CardIndvIH } from "./CardIndvIH";
 import './containerCardsIH.css';
 
@@ -7,24 +7,26 @@ function ContainerCardsIH(props) {
     const isDataAvailable = products.length > 0;
 
     return (
-        <div className="container text-center" id="contCardProducts">
-            <div className="row">
-                {products.map((product, index) => (
-                    <div key={index} className="col st-card">
-                        <CardIndvIH
-                            srcImgCard={isDataAvailable ? product.imageSrc : ''}
-                            altCard={'productSmart'}
-                            nameCard={isDataAvailable ? product.name : ''}
-                            priceCard={isDataAvailable ? product.price : ''}
-                            linkS={props.link}
-                            pagRef={props.pag}
-                            index={index} 
-                            comprarProducto={props.comprarProducto}
-                        />
-                    </div>
-                ))}
+        <>
+            <div className="container text-center" id="contCardProducts">
+                <div className="row">
+                    {products.map((product, index) => (
+                        <div key={index} className="col st-card">
+                            <CardIndvIH
+                                srcImgCard={isDataAvailable ? product.imageSrc : ''}
+                                altCard={'productSmart'}
+                                nameCard={isDataAvailable ? product.name : ''}
+                                priceCard={isDataAvailable ? product.price : ''}
+                                linkS={props.link}
+                                pagRef={props.pag}
+                                index={index} 
+                                comprarProducto={props.comprarProducto}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

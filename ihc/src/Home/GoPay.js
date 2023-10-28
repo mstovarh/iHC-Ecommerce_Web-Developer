@@ -21,9 +21,6 @@ function GoPay() {
       <div>
         <HeaderL logpag={"Carrito de compras"} />
         <main className="s-dataPay">
-          <section className="d-flex align-items-center justify-content-center p-2">
-            <h2>PRODUCTOS</h2>
-          </section>
           <section className="d-flex flex-wrap flex-column align-items-center justify-content-center">
             <div>
               <h2>DATOS DE PAGO</h2>

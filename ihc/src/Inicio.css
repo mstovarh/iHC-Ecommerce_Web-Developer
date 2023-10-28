@@ -1,8 +1,8 @@
 body{
-  font-family: 'Pangolin', cursive;
-}
+    font-family: 'Pangolin', cursive;
+}   
 
-.st-icon {
-  margin-left: 10px;
-  margin-right: 10px;
+a {
+    text-decoration: none;
+    color: inherit; 
 }

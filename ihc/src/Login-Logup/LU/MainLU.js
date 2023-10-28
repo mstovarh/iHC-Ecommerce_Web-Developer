@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './mainLU.css';
 
-function MainLU() {
+function MainLU(props) { 
+  const users = props.datos; 
+
   const [errorMessage, setErrorMessage] = useState('');
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const navigate = useNavigate();
 
   const isEmailValid = (email) => {
@@ -64,14 +65,7 @@ function MainLU() {
       setErrorMessage('Las contraseñas no coinciden');
     } else {
 
-      try {
-        const response = await fetch('./usuarios.json');
-        if (!response.ok) {
-          throw new Error('No se pudo cargar la información de usuarios');
-        }
-      
-      const data = await response.json(); 
-      const user = data.find(u => u.email === email && u.password === password);
+      const user = users.find(u => u.email === email && u.password === password);
       
       if (user) {
         alert('Usted ya tiene una cuenta');
@@ -85,9 +79,9 @@ function MainLU() {
           emailCheck,
           passwordCheck
         };
-    
+
         try {
-          const response = await fetch('./usuarios.json', {
+          const response = await fetch('/api/users', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -95,147 +89,142 @@ function MainLU() {
             body: JSON.stringify(newUser),
           });
     
-          if (!response.ok) {
-            throw new Error('No se pudo registrar el usuario');
+          if (response.ok) {
+            alert('Registro exitoso');
+            navigate('/login');
+          } else {
+            const errorData = await response.json();
+            console.error(errorData);
           }
-  
-          navigate('/login');
-          setFormSubmitted(true);
         } catch (error) {
-          console.error(error);
+          console.error('Error al realizar la solicitud POST:', error);
         }
       }
-
-      }catch(error) {
-        console.error(error);
-        setErrorMessage('Error al procesar la solicitud');
-      }
-      
     }
   };
   
     return(
       <>
-      <main>
-        <section>
-          <div className="text-center">
-            <div className="row">
-              <div className="col s-form">
-                <fieldset className="s-fieldset rounded-4">
-                  <div className="row">
-                    <p className="h5">Ingresa tus datos</p>
-                    {errorMessage && <p className="p-error">{errorMessage}</p>}
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            name="name"
-                            value={formData.name}
-                            className="form-control"
-                            placeholder="Nombre"
-                            autoComplete="given-name"
-                            onChange={handleInputChange}
-                            required
-                          />
+        <main>
+          <section>
+            <div className="text-center">
+              <div className="row">
+                <div className="col s-form d-flex align-items-center justify-content-center">
+                  <fieldset className="s-fieldset rounded-4">
+                    <div className="row">
+                      <p className="h5">Ingresa tus datos</p>
+                      {errorMessage && <p className="p-error">{errorMessage}</p>}
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              name="name"
+                              value={formData.name}
+                              className="form-control"
+                              placeholder="Nombre"
+                              autoComplete="given-name"
+                              onChange={handleInputChange}
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              name="lastname"
+                              value={formData.lastname}
+                              className="form-control"
+                              placeholder="Apellido"
+                              autoComplete="family-name"
+                              onChange={handleInputChange}
+                              required
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            name="lastname"
-                            value={formData.lastname}
-                            className="form-control"
-                            placeholder="Apellido"
-                            autoComplete="family-name"
-                            onChange={handleInputChange}
-                            required
-                          />
+                    <div className="row">
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              name="email"
+                              value={formData.email.toLowerCase()}
+                              className="form-control"
+                              placeholder="Correo electrónico"
+                              autoComplete="off"
+                              pattern=".+@globex\.com"
+                              onChange={handleInputChange}
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              name="emailCheck"
+                              value={formData.emailCheck.toLowerCase()}
+                              className="form-control"
+                              placeholder="Confirme correo electrónico"
+                              autoComplete="off"
+                              pattern=".+@globex\.com"
+                              onChange={handleInputChange}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            name="email"
-                            value={formData.email.toLowerCase()}
-                            className="form-control"
-                            placeholder="Correo electrónico"
-                            autoComplete="off"
-                            pattern=".+@globex\.com"
-                            onChange={handleInputChange}
-                            required
-                          />
+                    <div className="row">
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              type="password"
+                              name="password"
+                              minLength="8"
+                              value={formData.password}
+                              className="form-control"
+                              placeholder="Contraseña"
+                              autoComplete="off"
+                              onChange={handleInputChange}
+                              required  
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col">
+                        <div className="mb-3">
+                          <div className="col">
+                            <input
+                              type="password"
+                              name="passwordCheck"
+                              value={formData.passwordCheck}
+                              className="form-control"
+                              placeholder="Confirme contraseña"
+                              autoComplete="off"
+                              onChange={handleInputChange}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            name="emailCheck"
-                            value={formData.emailCheck.toLowerCase()}
-                            className="form-control"
-                            placeholder="Confirme correo electrónico"
-                            autoComplete="off"
-                            pattern=".+@globex\.com"
-                            onChange={handleInputChange}
-                          />
-                        </div>
+                    <div className="mb-3">
+                      <div className="col">
+                        <button type="submit" className="btn btn-warning" onClick={handleRegister}>
+                          Regístrame
+                        </button>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            type="password"
-                            name="password"
-                            minLength="8"
-                            value={formData.password}
-                            className="form-control"
-                            placeholder="Contraseña"
-                            autoComplete="off"
-                            onChange={handleInputChange}
-                            required  
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="mb-3">
-                        <div className="col">
-                          <input
-                            type="password"
-                            name="passwordCheck"
-                            value={formData.passwordCheck}
-                            className="form-control"
-                            placeholder="Confirme contraseña"
-                            autoComplete="off"
-                            onChange={handleInputChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <div className="col">
-                      <button type="submit" className="btn btn-warning" onClick={handleRegister}>
-                        Regístrame
-                      </button>
-                    </div>
-                  </div>
-                </fieldset>
+                  </fieldset>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
       </>
     );
 }

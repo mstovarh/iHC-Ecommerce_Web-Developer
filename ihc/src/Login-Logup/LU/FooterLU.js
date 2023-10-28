@@ -1,3 +1,4 @@
+import React from 'react';
 import './footerLU.css'
 
 function FooterLU(){

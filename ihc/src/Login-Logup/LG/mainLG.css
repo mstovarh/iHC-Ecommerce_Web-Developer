@@ -10,12 +10,6 @@
     background-color: #FFFCCE;
 }
 
-.msg-1LG {
-    color: red;
-    font-size: 0.55em;
-    font-weight:600;
-}
-
 .s-fieldsetLG {
     font-family: 'Pangolin', cursive;
     background-color: #e5e2b6;
@@ -37,7 +31,6 @@
     word-wrap: break-word;
 }
   
-
 .p-error {
     font-size: 10px;
     color: red;

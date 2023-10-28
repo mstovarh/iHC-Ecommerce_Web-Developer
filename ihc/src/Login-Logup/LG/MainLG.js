@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './mainLG.css';
-import Home from '../../Home';
-import Admin from '../../Admin';
  
-function MainLG() {
+function MainLG(props) {
+  const users = props.datos; 
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+
   const navigate = useNavigate();
 
   const isEmailValid = (email) => {
@@ -30,44 +31,31 @@ function MainLG() {
     setErrorMessage('');
     setFormSubmitted(true);
 
-    try {
-      const response = await fetch('./usuarios.json');
-      if (!response.ok) {
-        throw new Error('No se pudo cargar la información de usuarios');
-      }
-
-      const data = await response.json(); 
-
-      if (email === '' && password === '') {
-        setErrorMessage('Por favor, completa los campos de correo y contraseña.');
-      } else if (email === '') {
-        setErrorMessage('Por favor, completa el campo de correo.');
-      } else if (!isEmailValid(email)) {
-        setErrorMessage('El correo debe tener una dirección válida (alguien@example.com).');
-      } else if (password === '') {
-        setErrorMessage('Por favor, completa el campo de contraseña.');
-      } else if (password.length < 8) {
-        setErrorMessage('La contraseña debe tener al menos 8 caracteres.');
-      } else {
-        const user = data.find(u => u.email === email && u.password === password);
-        if (user) {
-          if (user.email === 'admin@ihc.com' && user.password === 'admin12345') {
-            navigate('/admin');
-          } else {
-            navigate('/home');
-          }
+    if (email === '' && password === '') {
+      setErrorMessage('Por favor, completa los campos de correo y contraseña.');
+    } else if (email === '') {
+      setErrorMessage('Por favor, completa el campo de correo.');
+    } else if (!isEmailValid(email)) {
+      setErrorMessage('El correo debe tener una dirección válida (alguien@example.com).');
+    } else if (password === '') {
+      setErrorMessage('Por favor, completa el campo de contraseña.');
+    } else if (password.length < 8) {
+      setErrorMessage('La contraseña debe tener al menos 8 caracteres.');
+    } else {
+      const user = users.find(u => u.email === email && u.password === password);
+      if (user) {
+        if (user.email === 'admin@ihc.com' && user.password === 'admin12345') {
+          navigate('/admin');
         } else {
-          alert('Usuario no registrado');
+          navigate('/home');
         }
+      } else {
+        alert('Usuario no registrado');
       }
-      
-      if (errorMessage) {
-        event.preventDefault();
-      }
-
-    } catch (error) {
-      console.error(error);
-      setErrorMessage('Error al procesar la solicitud');
+    }
+    
+    if (errorMessage) {
+      event.preventDefault();
     }
   };
 

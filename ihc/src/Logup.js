@@ -4,14 +4,15 @@ import { HeaderL } from './Login-Logup/HeaderL';
 import { FooterLU } from './Login-Logup/LU/FooterLU';
 import { MainLU } from './Login-Logup/LU/MainLU';
 
-//const Logup = () => {
-function Logup(){
+function Logup(props){
+  const users = props.users;
+  const isDataAvailable = users.length > 0; 
   return(
-  <>
-    <HeaderL logpag={"Registrate"}/>
-    <MainLU/>
-    <FooterLU/>
-  </>
+    <>
+      <HeaderL logpag={"Registrate"}/>
+      <MainLU datos={isDataAvailable ? users : []}/>
+      <FooterLU/>
+    </>
   );
 }
 
