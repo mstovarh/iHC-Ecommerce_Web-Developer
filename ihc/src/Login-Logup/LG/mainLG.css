@@ -1,12 +1,17 @@
 .s-nameLG {
-    height: 27em;
+    height: 80vh;
     background-color: #FFFCCE;
     font-family: 'Pangolin', cursive;
     color: #836DB3;
+    transition: color 0.3s ease;
+}
+
+.s-nameLG:hover {
+    color: #836db3e4;
 }
 
 .s-formLG {
-    height: 27em;
+    height: 80vh;
     background-color: #FFFCCE;
 }
 

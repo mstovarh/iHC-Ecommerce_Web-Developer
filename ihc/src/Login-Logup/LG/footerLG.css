@@ -1,7 +1,14 @@
 .s-footerLG {
-    height:15vh;
+    height: 12vh;
     background-color: #836DB3;
     font-family: 'Pangolin', cursive;
     color: #DECFFF;
     padding-left: 1em;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.s-footerLG:hover {
+    background-color: #8570b3;
+    color: #c9b1fc;
+    cursor: pointer;
 }

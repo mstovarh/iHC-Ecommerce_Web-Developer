@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './mainLG.css';
  
-function MainLG(props) {
-  const users = props.datos; 
+function MainLG() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,18 +41,37 @@ function MainLG(props) {
     } else if (password.length < 8) {
       setErrorMessage('La contraseña debe tener al menos 8 caracteres.');
     } else {
-      const user = users.find(u => u.email === email && u.password === password);
-      if (user) {
-        if (user.email === 'admin@ihc.com' && user.password === 'admin12345') {
-          navigate('/admin');
+
+      let redirectLocation;
+
+      try {
+        const response = await fetch('/api/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+      
+        if (response.ok) {
+          const data = await response.json();
+          redirectLocation = data.data.location;
+          // console.log("token:", data.data.token); 
+          if (redirectLocation) {
+            navigate(redirectLocation);
+          }
         } else {
-          navigate('/home');
+          const errorData = await response.json();
+          if (errorData.error && errorData.mensaje === 'Usuario invalido') {
+            alert('Usuario invalido');
+          } else {
+            console.error(errorData);
+          }
         }
-      } else {
-        alert('Usuario no registrado');
-      }
+      } catch (error) {
+        console.error('Error al realizar la solicitud POST:', error);
+      }      
     }
-    
     if (errorMessage) {
       event.preventDefault();
     }
@@ -65,10 +83,10 @@ function MainLG(props) {
         <section>
           <div className="text-center">
             <div className="row">
-              <div className="col-sm-6 s-nameLG d-flex align-items-center justify-content-center">
+              <div className="col-md-6 s-nameLG d-flex align-items-center justify-content-center">
                 <h1 className="display-3">iHome Creations</h1>
               </div>
-              <div className="col-sm-6 s-formLG d-flex align-items-center justify-content-center">
+              <div className="col-md-6 s-formLG d-flex align-items-center justify-content-center">
                 <fieldset className="s-fieldsetLG rounded-4">
                   <div>
                     <p className="h5">Ingresa tus datos</p>

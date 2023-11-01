@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './mainLU.css';
 
-function MainLU(props) { 
-  const users = props.datos; 
+function MainLU() { 
 
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -65,40 +64,43 @@ function MainLU(props) {
       setErrorMessage('Las contraseñas no coinciden');
     } else {
 
-      const user = users.find(u => u.email === email && u.password === password);
-      
-      if (user) {
-        alert('Usted ya tiene una cuenta');
-        navigate('/login');
-      } else {
-        const newUser = {
-          name,
-          lastname,
-          email,
-          password,
-          emailCheck,
-          passwordCheck
-        };
+      const newUser = {
+        name,
+        lastname,
+        email,
+        password,
+        emailCheck,
+        passwordCheck
+      };
 
-        try {
-          const response = await fetch('/api/users', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newUser),
-          });
-    
-          if (response.ok) {
-            alert('Registro exitoso');
+      let token;
+
+      try {
+        const response = await fetch('/api/users/logup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(newUser),
+        });
+        
+        if (response.ok) {
+          const data = await response.json(); 
+          //console.log("token:", data.token);
+          alert('Bienvenido. Inicie Sesión');
+          navigate('/login');
+        } else {
+          const errorData = await response.json();
+          if (errorData.error && errorData.mensaje === 'Email ya registrado') {
+            alert('Usted ya tiene cuenta');
             navigate('/login');
           } else {
-            const errorData = await response.json();
             console.error(errorData);
           }
-        } catch (error) {
-          console.error('Error al realizar la solicitud POST:', error);
         }
+      } catch (error) {
+        console.error('Error al realizar la solicitud POST:', error);
       }
     }
   };
@@ -114,9 +116,8 @@ function MainLU(props) {
                     <div className="row">
                       <p className="h5">Ingresa tus datos</p>
                       {errorMessage && <p className="p-error">{errorMessage}</p>}
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               name="name"
                               value={formData.name}
@@ -126,12 +127,10 @@ function MainLU(props) {
                               onChange={handleInputChange}
                               required
                             />
-                          </div>
                         </div>
                       </div>
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               name="lastname"
                               value={formData.lastname}
@@ -141,14 +140,12 @@ function MainLU(props) {
                               onChange={handleInputChange}
                               required
                             />
-                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               name="email"
                               value={formData.email.toLowerCase()}
@@ -159,12 +156,10 @@ function MainLU(props) {
                               onChange={handleInputChange}
                               required
                             />
-                          </div>
                         </div>
                       </div>
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               name="emailCheck"
                               value={formData.emailCheck.toLowerCase()}
@@ -174,14 +169,12 @@ function MainLU(props) {
                               pattern=".+@globex\.com"
                               onChange={handleInputChange}
                             />
-                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               type="password"
                               name="password"
@@ -193,12 +186,10 @@ function MainLU(props) {
                               onChange={handleInputChange}
                               required  
                             />
-                          </div>
                         </div>
                       </div>
-                      <div className="col">
+                      <div className="col-sm-6">
                         <div className="mb-3">
-                          <div className="col">
                             <input
                               type="password"
                               name="passwordCheck"
@@ -208,7 +199,6 @@ function MainLU(props) {
                               autoComplete="off"
                               onChange={handleInputChange}
                             />
-                          </div>
                         </div>
                       </div>
                     </div>

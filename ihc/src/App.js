@@ -9,26 +9,13 @@ import GoPay from './Home/GoPay';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("/api/products")
       .then(response => response.json())
       .then(data => {
         setProducts(data); 
-        /* console.log(data)  */
-      })
-      .catch(error => {
-        console.error('Error al cargar los datos:', error);
-      });
-  }, []); 
-
-  useEffect(() => {
-    fetch("/api/users")
-      .then(response => response.json())
-      .then(data => {
-        setUsers(data); 
-        /* console.log(data); */
+        // console.log(data)  
       })
       .catch(error => {
         console.error('Error al cargar los datos:', error);
@@ -39,11 +26,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inicio products={products}/>} />
-        <Route path="/login" element={<Login users={users}/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<Home products={products}/>}/>
         <Route path='/home:GoPay' element={<GoPay/>}/>
         <Route path="/admin" element={<Admin products={products}/>}/>
-        <Route path="/logup" element={<Logup users={users}/>} />
+        <Route path="/logup" element={<Logup/>} />
         <Route path='*' element={<Navigate to="/"/>} />
       </Routes>
     </BrowserRouter>

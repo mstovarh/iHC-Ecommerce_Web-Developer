@@ -2,4 +2,11 @@
     background-color: #836DB3;
     color: #DECFFF;
     height: 10vh;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.s-conecta:hover {
+    background-color: #8570b3;
+    color: #c9b1fc;
+    cursor: pointer;
 }

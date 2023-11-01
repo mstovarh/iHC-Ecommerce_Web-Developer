@@ -1,6 +1,7 @@
 .st-header {
     background-color: rgb(228, 148, 0);
     color: #FFFFFF;
+    width: 100vw;
 }
 
 @keyframes slide {

@@ -5,7 +5,7 @@ function FooterLU(){
     return(
         <>
             <footer>
-                <div className="row s-footer" />
+                <div className="row s-footerLU" />
             </footer>
         </>
     );

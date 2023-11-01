@@ -17,14 +17,20 @@
 }
 
 .st-con {
-    background-color: #8e8b67f0;
+    font-size: 12px;
+    background: #C796E1;
+    background: -moz-linear-gradient(left, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
+    background: -webkit-linear-gradient(left, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
+    background: linear-gradient(to right, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
     color: #FFFFFF;
-    padding: 0.7em;
 }
 
 .st-loc {
-    background-color: #7a7858df;
+    font-size: 12px;
+    background: #C796E1;
+    background: -moz-linear-gradient(left, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
+    background: -webkit-linear-gradient(left, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
+    background: linear-gradient(to right, #C796E1 0%, #EFB8F5 100%, #E0BBFF 100%);
     color: #FFFFFF;
-    padding: 0.7em;
 }
 

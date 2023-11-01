@@ -11,7 +11,7 @@ function ContainerCardsIH(props) {
             <div className="container text-center" id="contCardProducts">
                 <div className="row">
                     {products.map((product, index) => (
-                        <div key={index} className="col st-card">
+                        <div key={index} className="col st-card d-flex justify-content-center">
                             <CardIndvIH
                                 srcImgCard={isDataAvailable ? product.imageSrc : ''}
                                 altCard={'productSmart'}

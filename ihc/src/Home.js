@@ -142,7 +142,7 @@ function Home(props){
     const closeProfile = () => {
         setShowProfile(false);
     };
-  
+
     return(
         <>
             <HeaderL logpag={"¡Welcome!"}/>
@@ -219,7 +219,7 @@ function Home(props){
                                         Opciones
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <DropdownItem linkDropItem={"/home"} nameDropItem={"Historial de compras"}/>
+                                            <DropdownItem linkDropItem={"/home"} nameDropItem={"Mis compras"}/>
                                             <DropdownItem linkDropItem={"/home"} nameDropItem={"Configuracion"}/>
                                             <li>
                                                 <hr className="dropdown-divider" />

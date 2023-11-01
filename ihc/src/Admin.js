@@ -3,7 +3,7 @@ import './Admin.css';
 import { BNIcon } from './Inicio/Nav/BNIcon';
 import { SearchBt } from './Inicio/Main/SearchBt';
 import {ItemsNavAd} from './Admin/ItemsNavAd'
-import { ContainerCardsA } from './Admin/ContainerCardsA';
+import { ContainerCardsA } from './Admin/ContainerCardsA';  
 import { Footer } from './Inicio/Footer/Footer';
 
 function Admin(props){

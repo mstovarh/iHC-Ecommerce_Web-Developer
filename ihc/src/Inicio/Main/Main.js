@@ -80,7 +80,7 @@ function Main(props){
       <main className="container-fluid p-0">
         <section>
           <div className="row">
-            <div className="col-sm-8 px-0">
+            <div className="col-xl-8 px-0">
               <div
                 id="carouselExampleSlidesOnly"
                 className="carousel slide carousel-fade"
@@ -106,7 +106,7 @@ function Main(props){
               </div>
             </div>
             <div
-              className="col-sm-4 px-0 color-card text-center"
+              className="col-xl-4 px-0 color-card text-center"
               id="scrollspyHeading1"
             >
               <div
@@ -174,17 +174,19 @@ function Main(props){
           </div> 
         </section>
         <section className="st-contPC">
-          <div className="d-flex justify-content-end align-items-center me-5">
-            <div className="search-container">
-              <SearchBt
-                handleSearch={handleSearch}
-                searchTerm={searchTerm}
-                handleSearchChange={handleSearchChange}
-              />
+          <div className="row">
+            <div className="d-flex justify-content-end align-items-center">
+              <div className="search-container me-5">
+                <SearchBt
+                  handleSearch={handleSearch}
+                  searchTerm={searchTerm}
+                  handleSearchChange={handleSearchChange}
+                />
+              </div>
             </div>
-          </div>
-          <div>
-            <ContainerCardsIH p={filteredProducts} link={'/login'} pag={'inicio'}/>
+            <div>
+              <ContainerCardsIH p={filteredProducts} link={'/login'} pag={'inicio'}/>
+            </div>
           </div>
         </section>
         <section>

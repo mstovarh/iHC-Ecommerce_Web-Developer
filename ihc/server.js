@@ -1,25 +1,29 @@
-const express = require("express");
+const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const path = require("path");
-const webpack = require("webpack");
-const webpackDev = require("webpack-dev-middleware");
-const config = require("./webpack.config");
+const bodyparser = require('body-parser');
+const path = require('path');
+const webpack = require('webpack');
+const webpackDev = require('webpack-dev-middleware');
+const config = require('./webpack.config');
 const Product = require('./models/products');
-const User = require('./models/users');
-/* const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt"); */
-
 const port = 3000;
+require('dotenv').config();
 
 const server = express();
 
+// Analyze the forms
+server.use(bodyparser.urlencoded({ extended: false }));
+
+// Serving and compiling files in real time with Webpack
 server.use(webpackDev(webpack(config)));
 server.use(express.json());
 
+// Serving static files from directories
 server.use(express.static(path.join(__dirname, "public")));
 server.use('/dist', express.static(path.join(__dirname, 'public', 'dist')));
 
+// Cross-source resource sharing with Webpack
 const corsOptions = {
   origin: 'http://localhost:8080',
   methods: 'GET, POST, PATCH, DELETE',
@@ -27,6 +31,7 @@ const corsOptions = {
 
 server.use(cors(corsOptions)); 
 
+// Connection to the MongoDB database
 mongoose.connect('mongodb://127.0.0.1:27017/ihomec', { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
   console.log('Conexión a MongoDB establecida.');
@@ -35,12 +40,34 @@ mongoose.connect('mongodb://127.0.0.1:27017/ihomec', { useNewUrlParser: true, us
   console.error('Error al conectar a MongoDB: ' + err);
 });
 
-server.get("/", (req, res) => {
+// Importacion de rutas
+const authRoutes = require('./routes/auth');
+const validateToken = require('./routes/validate-token');
+const routeAdmin = require('./routes/route-admin');
+const routeHome = require('./routes/route-home');
+
+// Routes middlewares
+server.get('/', (req, res) => {
   res.sendFile(path.resolve('./public/index.html'));
 });
 
+server.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
-server.get("/api/products", (req, res) => {
+server.get('/logup', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+server.get('/home', validateToken, (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+server.get('/admin', validateToken, (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+server.get('/api/products', (req, res) => {
   Product.find({})
     .exec()
     .then(products => {
@@ -109,40 +136,18 @@ server.delete('/api/products/:id', (req, res) => {
       res.status(500).json({ error: 'Error al eliminar el producto.' });
     });
 });
+  
+server.use('/api/users', authRoutes)
 
-server.get("/api/users", (req, res) => {
-  User.find({})
-    .exec()
-    .then(users => {
-      res.json(users);
-    })
-    .catch(error => {
-      console.error('Error al obtener los usuarios: ' + error);
-      res.status(500).send('Error al obtener los usuarios.');
-    });
-});
+server.use('/admin', validateToken, routeAdmin)
 
-server.post('/api/users', (req, res) => {
-  const userData = req.body; 
-
-  const newUser = new User(userData);
-
-  newUser
-    .save()
-    .then(savedUser => {
-      res.json(savedUser);
-    })
-    .catch(error => {
-      console.error('Error al crear un usuario: ' + error);
-      res.status(500).send('Error al crear un usuario.');
-    });
-});
+server.use('/home', validateToken, routeHome)
 
 server.use((req, res) => {
   res.status(404).sendFile(path.resolve('./public/404.html'));
 });
 
-
+// start server
 server.listen(port, () => {
   console.log("La aplicación está en funcionamiento");
 });
