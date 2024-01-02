@@ -18,7 +18,7 @@ Creado con: <a>https://favicon.io/favicon-generator/</a>
 
 ## 🪄Paleta de colores
 
-<img width="556" alt="image" src="https://github.com/mstovarh/iHomeCreations-Ecommerce/assets/107591274/3a99ae63-7ba7-4b7b-a765-1da0690ded67">
+<img width="555" alt="image" src="https://github.com/mstovarh/iHomeCreations-Ecommerce/assets/107591274/3c46164c-5507-4b30-99af-328e63e9a342">
 
 Tomada de: <a>https://color.adobe.com/es/explore</a>
 
