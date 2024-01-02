@@ -1,4 +1,4 @@
-## iHC - iHome Creations
+## 💜iHC - iHome Creations
 
 iHome Creations nace como un proyecto innovador de diseño y desarrollo web con el objetivo de consolidar conocimientos y fundamentos en este campo. En esta iniciativa, hemos creado un e-commerce especializado en productos inteligentes para el hogar, que ofrece una amplia variedad de dispositivos y sistemas diseñados para automatizar las actividades diarias de nuestros apreciados clientes.
 
@@ -10,31 +10,31 @@ En el ámbito del servidor, seleccionamos Express con Node.js, y para la gestió
 
 iHome Creations no solo busca ofrecer productos innovadores para el hogar, sino que también se esfuerza por mantenerse a la vanguardia de las tecnologías actuales, proporcionando a nuestros clientes una experiencia integral con un diseño responsivo y avanzada en el ámbito de la automatización residencial.
 
-## Logo
+## ✨Logo
 
 ![android-chrome-512x512](https://github.com/mstovarh/mstovarh.github.io/assets/107591274/76169c9a-1038-4dcf-b97b-471295d8c544)
 
 Creado con: <a>https://favicon.io/favicon-generator/</a>
 
-## Paleta de colores
+## 🪄Paleta de colores
 
 ![AdobeColor-lila y amarillo](https://github.com/mstovarh/mstovarh.github.io/assets/107591274/3c53336a-34d8-49ba-9274-652f5b83df98)
 
 Tomada de: <a>https://color.adobe.com/es/explore</a>
 
-## Fuente del texto
+## 🖌Fuente del texto
 
 Pangolin
 
 Tomada de: <a>https://fonts.google.com/specimen/Pangolin</a>
 
-## Previsualización de la pagina
+## ✅Previsualización de la pagina
 
 <a>https://mstovarh.github.io](https://mstovarh.github.io/iHomeCreations-Ecommerce/</a>
 
 <img width="901" alt="image" src="https://github.com/mstovarh/mstovarh.github.io/assets/107591274/785766d6-8af4-4461-9b04-9c129605d228">
 
-## Requisitos de instalación
+## 📙Requisitos de instalación
 
 Para ejecutar el proyecto en el entorno de desarrollo local, es necesario contar con la instalación de los siguientes programas, y dependencias, con las versiones específicadas:
 
@@ -44,6 +44,6 @@ como devDependencies:
 
 @babel/core 7.23.2 | @babel/preset-env 7.23.2 | @babel/preset-react 7.22.15 | @testing-library/jest-dom 6.1.4 | @testing-library/react 14.0.0 | @testing-library/user-event 14.5.1 | babel-loader 9.1.3 | css-loader 6.8.1 | html-webpack-plugin 5.5.3 | nodemon 3.0.1 | style-loader 3.3.3 | webpack 5.89.0 | webpack-cli 5.1.4 | webpack-dev-middleware 6.1.1 | webpack-livereload-plugin 3.0.2 
 
-## Estado del proyecto
+## 📌Estado del proyecto
 
 Culminado
