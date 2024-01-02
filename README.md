@@ -45,3 +45,7 @@ como devDependencies:
 ## Link de acceso a la página
 
 <a>https://mstovarh.github.io</a>
+
+## Estado del proyecto
+
+Culminado
