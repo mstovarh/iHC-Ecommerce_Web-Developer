@@ -30,7 +30,7 @@ Tomada de: <a>https://fonts.google.com/specimen/Pangolin</a>
 
 ## Previsualización de la pagina
 
-<a>https://mstovarh.github.io</a>
+<a>https://mstovarh.github.io](https://mstovarh.github.io/iHomeCreations-Ecommerce/</a>
 
 <img width="901" alt="image" src="https://github.com/mstovarh/mstovarh.github.io/assets/107591274/785766d6-8af4-4461-9b04-9c129605d228">
 
