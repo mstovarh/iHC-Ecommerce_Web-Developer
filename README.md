@@ -18,7 +18,7 @@ Creado con: <a>https://favicon.io/favicon-generator/</a>
 
 ## 🪄Paleta de colores
 
-![AdobeColor-lila y amarillo](https://github.com/mstovarh/mstovarh.github.io/assets/107591274/3c53336a-34d8-49ba-9274-652f5b83df98)
+<img width="556" alt="image" src="https://github.com/mstovarh/iHomeCreations-Ecommerce/assets/107591274/3a99ae63-7ba7-4b7b-a765-1da0690ded67">
 
 Tomada de: <a>https://color.adobe.com/es/explore</a>
 
