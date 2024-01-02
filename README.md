@@ -30,6 +30,8 @@ Tomada de: <a>https://fonts.google.com/specimen/Pangolin</a>
 
 ## Previsualización de la pagina
 
+<a>https://mstovarh.github.io</a>
+
 <img width="901" alt="image" src="https://github.com/mstovarh/mstovarh.github.io/assets/107591274/785766d6-8af4-4461-9b04-9c129605d228">
 
 ## Requisitos de instalación
@@ -41,10 +43,6 @@ nodejs 18.18.0 | npm 9.9.2 | react 18.2.0 | react-dom 18.2.0 | react-icons 4.11.
 como devDependencies:
 
 @babel/core 7.23.2 | @babel/preset-env 7.23.2 | @babel/preset-react 7.22.15 | @testing-library/jest-dom 6.1.4 | @testing-library/react 14.0.0 | @testing-library/user-event 14.5.1 | babel-loader 9.1.3 | css-loader 6.8.1 | html-webpack-plugin 5.5.3 | nodemon 3.0.1 | style-loader 3.3.3 | webpack 5.89.0 | webpack-cli 5.1.4 | webpack-dev-middleware 6.1.1 | webpack-livereload-plugin 3.0.2 
-
-## Link de acceso a la página
-
-<a>https://mstovarh.github.io</a>
 
 ## Estado del proyecto
 
