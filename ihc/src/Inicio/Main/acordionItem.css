@@ -1,6 +1,5 @@
-.st-but {
+.st-but:hover {
     background-color: #FFFCCE;
-    color: #000000;
 }
 
 .st-but-in {

@@ -41,7 +41,7 @@ function CardIndvIH(props) {
           </div>
           <button className="btn btn-outline-warning">
             {props.pagRef === 'inicio' ? (
-              <Link to={props.linkS}>Comprar ahora</Link>
+              <Link className="st-link" to={props.linkS}>Comprar ahora</Link>
             ) : (
               <Link onClick={() => comprarProducto(props.index, cantidad)}>Comprar ahora</Link>
             )}

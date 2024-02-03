@@ -1,7 +1,10 @@
+footer {
+    font-family: 'Pangolin', cursive;
+}
+
 .s-footerLU {
     height: 12vh;
     background-color: #836DB3;
-    font-family: 'Pangolin', cursive;
     transition: background-color 0.5s ease;
 }
 

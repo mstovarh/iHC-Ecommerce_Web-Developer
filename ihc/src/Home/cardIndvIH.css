@@ -17,3 +17,8 @@
 .st-cant {
     max-width: 50px;
 }
+
+.st-link {
+    text-decoration: none;
+    color: inherit;
+}

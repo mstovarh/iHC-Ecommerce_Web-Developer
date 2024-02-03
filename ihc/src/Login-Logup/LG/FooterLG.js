@@ -12,10 +12,10 @@ function FooterLG(){
         <div className="col-sm-4 text-end">
           <div className="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" className="btn btn-warning">
-              <Link to="/logup">Registrarme</Link>
+              <Link to="/logup" className="st-link">Registrarme</Link>
             </button>
             <button type="button" className="btn btn-warning">
-              <Link to="/">Atras</Link>
+              <Link to="/" className="st-link">Atras</Link>
             </button>
           </div>
         </div>

@@ -125,7 +125,7 @@ function MainLG() {
                       </div>
                       <div className="mb-3">
                         <h6>
-                          <a href="#" onClick={handleForgotPassword}>¿Olvidaste tu contraseña?</a>
+                          <a className='st-a' href="#" onClick={handleForgotPassword}>¿Olvidaste tu contraseña?</a>
                         </h6>
                       </div>
                     </form>
