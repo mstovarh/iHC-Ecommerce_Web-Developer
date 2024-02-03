@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/iHomeCreations-Ecommerce/static/css/main.65a3283a.css",
+    "main.css": "/iHomeCreations-Ecommerce/static/css/main.f1e49093.css",
     "main.js": "/iHomeCreations-Ecommerce/static/js/main.22016133.js",
     "static/js/651.af2c898e.chunk.js": "/iHomeCreations-Ecommerce/static/js/651.af2c898e.chunk.js",
     "index.html": "/iHomeCreations-Ecommerce/index.html",
-    "main.65a3283a.css.map": "/iHomeCreations-Ecommerce/static/css/main.65a3283a.css.map",
+    "main.f1e49093.css.map": "/iHomeCreations-Ecommerce/static/css/main.f1e49093.css.map",
     "main.22016133.js.map": "/iHomeCreations-Ecommerce/static/js/main.22016133.js.map",
     "651.af2c898e.chunk.js.map": "/iHomeCreations-Ecommerce/static/js/651.af2c898e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65a3283a.css",
+    "static/css/main.f1e49093.css",
     "static/js/main.22016133.js"
   ]
 }
