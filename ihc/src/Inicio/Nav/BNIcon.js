@@ -8,7 +8,7 @@ function BNIcon(){
       <img
       src={'/favicon.ico'}
       alt="Logo"
-      width={30}
+      width={70}
       height={24}
       className={"me-1"}
       />
